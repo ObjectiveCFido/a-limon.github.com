@@ -94,12 +94,12 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#-"><span class="toc-number">1.</span> <span class="toc-text">安装与配置</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#-"><span class="toc-number">1.1.</span> <span class="toc-text">准备和迁移工作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#-"><span class="toc-number">1.2.</span> <span class="toc-text">安装插件和主题</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#-"><span class="toc-number">2.</span> <span class="toc-text">使用与调试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-"><span class="toc-number">3.</span> <span class="toc-text">注意事项</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#-"><span class="toc-number">3.1.</span> <span class="toc-text">关于摘要</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#-"><span class="toc-number">3.2.</span> <span class="toc-text">图片显示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#-"><span class="toc-number">3.3.</span> <span class="toc-text">自定义页面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#-"><span class="toc-number">3.4.</span> <span class="toc-text">实时预览</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#-tips"><span class="toc-number">3.5.</span> <span class="toc-text">其他Tips</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装与配置"><span class="toc-number">1.</span> <span class="toc-text">安装与配置</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#准备和迁移工作"><span class="toc-number">1.1.</span> <span class="toc-text">准备和迁移工作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装插件和主题"><span class="toc-number">1.2.</span> <span class="toc-text">安装插件和主题</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#使用与调试"><span class="toc-number">2.</span> <span class="toc-text">使用与调试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注意事项"><span class="toc-number">3.</span> <span class="toc-text">注意事项</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#关于摘要"><span class="toc-number">3.1.</span> <span class="toc-text">关于摘要</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#图片显示"><span class="toc-number">3.2.</span> <span class="toc-text">图片显示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义页面"><span class="toc-number">3.3.</span> <span class="toc-text">自定义页面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实时预览"><span class="toc-number">3.4.</span> <span class="toc-text">实时预览</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他Tips"><span class="toc-number">3.5.</span> <span class="toc-text">其他Tips</span></a></li></ol>
 		</div>
 		
 		<p><a href="http://zespia.tw/hexo/" target="_blank">hexo</a>是由Node.js驱动的一款快速、简单且功能强大的博客框架。它和<a href="http://jekyllrb.com/" target="_blank">jekyll</a>相比，更快，更轻量。之前在Github上托管的博客就是使用jekyll搭建的，官方的Github Pages同样推荐使用它。但是jekyll目前有不少缺点，包括生成速度尤其是文章多了以后的生成速度让人无法接受，默认引擎Redcarpet解析Markdown时对中文支持不好，而且在Windows上使用问题多多，之前被严重坑过，虽然有解决的办法但是实在是耗费精力。经过<a href="http://weibo.com/aries77devil" target="_blank">@AriesDevil</a>同学介绍，认识了hexo，这个来自台湾大学生的作品，蒙拜之情瞬间产生。<br>于是从Github Clone项目，在非常详细的<a href="http://zespia.tw/hexo/docs/" target="_blank">文档</a>帮助下马上就在本地跑起来博客了，速度飕飕的果不其然，V8引擎不是盖的，快赶上法拉利了。下面是具体的步骤和需要注意的事情。</p>
-<h2 id="-">安装与配置</h2>
-<h3 id="-">准备和迁移工作</h3>
+<h2 id="安装与配置">安装与配置</h2>
+<h3 id="准备和迁移工作">准备和迁移工作</h3>
 <p>需要先配置好Node.js环境，npm工具以及Git，之后的本地初始化请参考文档中的<a href="http://zespia.tw/hexo/docs/index.html" target="_blank">说明</a>，照着文档一步步做就行。   </p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
@@ -108,7 +108,7 @@
 </pre></td></tr></table></figure>
 
 <p>全局设定文件储存于网站根目录下的<code>_config.yml</code>文件，根据你的需要配置站点名，固定链接等诸多设定。<br>如果你是从jekyll/Octopress/Wordpress迁移过来的，也很容易，顺着<a href="http://zespia.tw/hexo/docs/migration.html" target="_blank">这里</a>安装下插件。<strong>注意留意所有文件中，尤其是配置文件中的空格，缺少空格会报错。</strong></p>
-<h3 id="-">安装插件和主题</h3>
+<h3 id="安装插件和主题">安装插件和主题</h3>
 <p>Hexo提供丰富的<a href="https://github.com/tommy351/hexo/wiki/Plugins" target="_blank">插件</a>以及<a href="https://github.com/tommy351/hexo/wiki/Themes" target="_blank">主题</a>。安装方法都是一样的。</p>
 <ul>
 <li><p>插件</p>
@@ -124,7 +124,7 @@
 </li>
 </ul>
 <p>无论是插件还是主题在安装后都需要在根目录下<code>_config.yml</code>中修改<code>plugins</code>和<code>theme</code>的值以启用他们。</p>
-<h2 id="-">使用与调试</h2>
+<h2 id="使用与调试">使用与调试</h2>
 <p>在本地如果需要预览或者调试你的博客，可以启动本地服务器：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>hexo <span class="keyword">server</span>
@@ -141,8 +141,7 @@
   branch: master
 </pre></td></tr></table></figure>
 
-<p>如果你是为一个项目制作网站，那么需要把<code>branch</code>设置为<code>gh-pages</code>。若要绑定自定义域名也可以参考<a href="http://zespia.tw/hexo/docs/deployment.html" target="_blank">Hexo</a>或<a href="http://pages.github.com/" target="_blank">Github Page</a>的帮助文档，制作一个<code>cname</code>文件。
-之后执行下列指令即可完成部署，注意部署会覆盖掉你之前在版本库中存放的文件。</p>
+<p>如果你是为一个项目制作网站，那么需要把<code>branch</code>设置为<code>gh-pages</code>。若要绑定自定义域名也可以参考<a href="http://zespia.tw/hexo/docs/deployment.html" target="_blank">Hexo</a>或<a href="http://pages.github.com/" target="_blank">Github Page</a>的帮助文档，制作一个<code>cname</code>文件。<br>之后执行下列指令即可完成部署，注意部署会覆盖掉你之前在版本库中存放的文件。</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -151,21 +150,20 @@ hexo <span class="keyword">generate</span>
 hexo deploy
 </pre></td></tr></table></figure>
 
-<p>或可加入 --generate 选项，在部署前自动生成文件。</p>
+<p>或可加入 —generate 选项，在部署前自动生成文件。</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre><span class="comment">hexo</span> <span class="comment">deploy</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">generate</span>
 </pre></td></tr></table></figure>
 
-<p>其原理就是hexo在执行<code>hexo generate</code>时会在本地先把博客生成的一套静态站点放到<code>public</code>文件夹中，在执行<code>hexo deploy</code>时将其复制到<code>.deploy</code>文件夹中。Github的版本库通常建议同时附上README.md说明文件，但是hexo默认情况下会把所有md文件解析成html文件，所以即使你在线生成了README.md，它也会在你下一次部署时被删去。怎么解决呢？
-在执行<code>hexo deploy</code>前把在本地写好的README.md文件复制到<code>.deploy</code>文件夹中，再去执行<code>hexo deploy</code>。</p>
-<h2 id="-">注意事项</h2>
-<h3 id="-">关于摘要</h3>
+<p>其原理就是hexo在执行<code>hexo generate</code>时会在本地先把博客生成的一套静态站点放到<code>public</code>文件夹中，在执行<code>hexo deploy</code>时将其复制到<code>.deploy</code>文件夹中。Github的版本库通常建议同时附上README.md说明文件，但是hexo默认情况下会把所有md文件解析成html文件，所以即使你在线生成了README.md，它也会在你下一次部署时被删去。怎么解决呢？<br>在执行<code>hexo deploy</code>前把在本地写好的README.md文件复制到<code>.deploy</code>文件夹中，再去执行<code>hexo deploy</code>。</p>
+<h2 id="注意事项">注意事项</h2>
+<h3 id="关于摘要">关于摘要</h3>
 <p>如果你之前使用过jekyll那么可能这一切都很熟悉。hexo的文章保存在<code>source/_post</code>目录下。在文档中插入<code>&lt;!--more--&gt;</code>就可以将文章分隔，more以上的部分会已摘要的形式显示，当查看全文时more以下的部分才会显示出来。也可以在Markdown文件中定义<code>description</code>。</p>
-<h3 id="-">图片显示</h3>
+<h3 id="图片显示">图片显示</h3>
 <p>同样放到<code>source</code>目中下。建议大家建立一个<code>image</code>文件夹，把文章中使用到的图片丢到这里来（当然可以按照你的习惯进行分类），之后在Markdown文件中按照这样的语法进行插入图片的操作。</p>
 <script src="https://gist.github.com/8504808.js"></script>
 
-<h3 id="-">自定义页面</h3>
+<h3 id="自定义页面">自定义页面</h3>
 <p>如果想建立一个简单的Page很容易，只需要在<code>source</code>下建立一个文件夹，如<code>page</code>。在这个目录下新建<code>index.md</code>：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
@@ -177,9 +175,7 @@ hexo deploy
 This is a page test.
 </pre></td></tr></table></figure>
 
-<p>最后在你的主题目录下找到主题的配置文件<code>_config.yml</code>，在里面配置页面的路径即可。
-so easy?那么如果我放一些不需要hexo帮我解析的HTML文件(比如404页面)呢？
-在<code>source</code>下放入一个HTML文件，hexo还是会自作多情的用render帮你解析了。这个时候需要在html文件的头部加入:</p>
+<p>最后在你的主题目录下找到主题的配置文件<code>_config.yml</code>，在里面配置页面的路径即可。<br>so easy?那么如果我放一些不需要hexo帮我解析的HTML文件(比如404页面)呢？<br>在<code>source</code>下放入一个HTML文件，hexo还是会自作多情的用render帮你解析了。这个时候需要在html文件的头部加入:</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre><span class="header">layout: false
@@ -208,13 +204,12 @@ so easy?那么如果我放一些不需要hexo帮我解析的HTML文件(比如404
 </pre></td></tr></table></figure>
 
 <p>这样你放入<code>source</code>文件夹中的html页面就会被hexo忽略掉。</p>
-<h3 id="-">实时预览</h3>
-<p>如今的Hexo已经可以自动监控文件修改，并为你自动更新。如果连刷新都懒得去按怎么办？
-使用<a href="http://livereload.com/" target="_blank">livereload</a>。</p>
+<h3 id="实时预览">实时预览</h3>
+<p>如今的Hexo已经可以自动监控文件修改，并为你自动更新。如果连刷新都懒得去按怎么办？<br>使用<a href="http://livereload.com/" target="_blank">livereload</a>。</p>
 <blockquote>
 <p>livereload不仅仅跨平台，而且是<a href="https://github.com/livereload/LiveReload" target="_blank">开源</a>的，可以使用<a href="http://hahack.com/codes/livereload-for-hexo/" target="_blank">npm</a>安装，同时提供包括自动编译Less、Stylus或集成Sublime Text等编辑器的<a href="https://github.com/livereload/livereload-plugins" target="_blank">插件</a>。神器在手妈妈再也不用担心我的F5键了。</p>
 </blockquote>
-<h3 id="-tips">其他Tips</h3>
+<h3 id="其他Tips">其他Tips</h3>
 <ul>
 <li>有的时候当你修改页面或更改配置后发现并没有立即生效，可以执行<code>hexo clean</code>然后再启动<code>hexo server</code>。  </li>
 <li>默认的评论组件可能并不太适合中国大陆用户（你懂的。。），你可以选择性的换成别的组件，或主题，比如我用的<a href="http://duoshuo.com/" target="_blank">多说评论</a>以及<a href="https://github.com/A-limon/pacman" target="_blank">Pacman</a>主题。</li>
@@ -277,7 +272,7 @@ so easy?那么如果我放一些不需要hexo帮我解析的HTML文件(比如404
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#-"><span class="toc-number">1.</span> <span class="toc-text">安装与配置</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#-"><span class="toc-number">1.1.</span> <span class="toc-text">准备和迁移工作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#-"><span class="toc-number">1.2.</span> <span class="toc-text">安装插件和主题</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#-"><span class="toc-number">2.</span> <span class="toc-text">使用与调试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-"><span class="toc-number">3.</span> <span class="toc-text">注意事项</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#-"><span class="toc-number">3.1.</span> <span class="toc-text">关于摘要</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#-"><span class="toc-number">3.2.</span> <span class="toc-text">图片显示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#-"><span class="toc-number">3.3.</span> <span class="toc-text">自定义页面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#-"><span class="toc-number">3.4.</span> <span class="toc-text">实时预览</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#-tips"><span class="toc-number">3.5.</span> <span class="toc-text">其他Tips</span></a></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装与配置"><span class="toc-number">1.</span> <span class="toc-text">安装与配置</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#准备和迁移工作"><span class="toc-number">1.1.</span> <span class="toc-text">准备和迁移工作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装插件和主题"><span class="toc-number">1.2.</span> <span class="toc-text">安装插件和主题</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#使用与调试"><span class="toc-number">2.</span> <span class="toc-text">使用与调试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注意事项"><span class="toc-number">3.</span> <span class="toc-text">注意事项</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#关于摘要"><span class="toc-number">3.1.</span> <span class="toc-text">关于摘要</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#图片显示"><span class="toc-number">3.2.</span> <span class="toc-text">图片显示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义页面"><span class="toc-number">3.3.</span> <span class="toc-text">自定义页面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实时预览"><span class="toc-number">3.4.</span> <span class="toc-text">实时预览</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他Tips"><span class="toc-number">3.5.</span> <span class="toc-text">其他Tips</span></a></li></ol>
   </div>
 
 <div id="asidepart">
@@ -289,7 +284,7 @@ so easy?那么如果我放一些不需要hexo帮我解析的HTML文件(比如404
 	<p class="asidetitle"><a href="/categories">分类</a></p>
 		<ul>
 		
-			<li><a href="/categories/learning/" title="learning">learning<sup>1</sup></a></li>
+			<li><a href="/categories/learning/" title="learning">learning<sup>2</sup></a></li>
 		
 			<li><a href="/categories/personal/" title="personal">personal<sup>2</sup></a></li>
 		
@@ -324,7 +319,11 @@ so easy?那么如果我放一些不需要hexo帮我解析的HTML文件(比如404
 		
 			<li><a href="/tags/学习/" title="学习">学习<sup>1</sup></a></li>
 		
+			<li><a href="/tags/性能优化/" title="性能优化">性能优化<sup>1</sup></a></li>
+		
 			<li><a href="/tags/总结/" title="总结">总结<sup>2</sup></a></li>
+		
+			<li><a href="/tags/浏览器/" title="浏览器">浏览器<sup>1</sup></a></li>
 		
 		</ul>
 </div>
@@ -334,8 +333,8 @@ so easy?那么如果我放一些不需要hexo帮我解析的HTML文件(比如404
   <p class="asidetitle">友情链接</p>
     <ul>
       <li><a href="http://yangjian.me" target="_blank" title="YangJian">Alimon's Blog</a></li>
-      <li><a href="http://zespia.tw/hexo" target="_blank" title="Hexo">Hexo</a></li>
-      <li><a href="http://se77en.cc/" target="_blank" title="se77en">se77en</a></li>
+      <li><a href="http://hexo.io/" target="_blank" title="Hexo">Hexo</a></li>
+      <li><a href="http://se77en.cc/" target="_blank" title="Se77en">Se77en</a></li>
        <li><a href="http://eli.im/" target="_blank" title="Eli's Blog">Eli's Blog</a></li>
     </ul>
 </div>

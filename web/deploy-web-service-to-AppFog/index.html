@@ -94,10 +94,10 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#appfog-"><span class="toc-number">1.</span> <span class="toc-text">AppFog简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-"><span class="toc-number">2.</span> <span class="toc-text">创建应用：</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#AppFog简介"><span class="toc-number">1.</span> <span class="toc-text">AppFog简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建应用："><span class="toc-number">2.</span> <span class="toc-text">创建应用：</span></a></li></ol>
 		</div>
 		
-		<h2 id="appfog-">AppFog简介</h2>
+		<h2 id="AppFog简介">AppFog简介</h2>
 <p><a href="https://www.appfog.com/" target="_blank">AppFog</a>是一个基于<a href="http://www.cloudfoundry.com/" target="_blank">Cloud Foundry</a>的PaaS平台，类似Google APP Engine和Heroku。最底层是基于AWS, RackSpace,HP OpenStack, MS Azure这样的IaaS平台，中间层使用Cloud Foundry，最上层是AppFog。<br>以内存分配作为主要的定价规则，无缝切换IaaS平台，无需关心配置问题，专心Code，就是所谓的“Work on code, not management.”AppFog还提供了iphone App用来监控你的Web应用，由于是基于Cloud Foundry 所以可以同样适用很多第三方开源工具。可以通过他们的<a href="http://blog.appfog.com/" target="_blank">博客</a>了解更多信息。  </p>
 <p><a href="http://techcrunch.com/2012/08/01/appfog-and-rackspace-want-to-break-your-app-out-of-amazons-walled-garden/?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed%3A+Techcrunch+%28TechCrunch%29" target="_blank">TechCrunch</a>前两天报道了AppFog，而且后者最近拿到了大笔的融资，目测还是很靠谱的。最重要的是<strong>Free方案很给力：</strong>  </p>
 <ul>
@@ -122,7 +122,7 @@
 <li>ClearDB，IronMQ，IronWorker，Mailgun，Searchify，CloudMailin  </li>
 </ul>
 <p><img src="/image/2013-03-17/appfog1.PNG" alt="Appflg">  </p>
-<h2 id="-">创建应用：</h2>
+<h2 id="创建应用：">创建应用：</h2>
 <ul>
 <li>Step 1: Choose an application 选择应用类型</li>
 <li>Step 2: Choose an infrastructure 选择底层平台，推荐使用AWS Asia SE，访问速度还是比较快的。</li>
@@ -134,22 +134,22 @@
 <p>需要注意的是，AppFog是利用ruby gem安装<code>af</code>命令行工具进行源代码更新的。在进入工作目录后，</p>
 <pre><code>gem install af
 af login
-af update yourAPP 
+af <span class="operator"><span class="keyword">update</span> yourAPP </span>
 </code></pre><p>Windows平台：首先安装 <a href="http://rubyinstaller.org/" target="_blank">Ruby Installer for Windows</a> （如果你还进行其他Ruby开发，也可以安装<a href="http://railsinstaller.org/" target="_blank">RailsInstaller</a>）安装完成后使用Command Prompt with Ruby完成操作</p>
-<pre><code>gem update --system
+<pre><code>gem <span class="operator"><span class="keyword">update</span> --system
 gem install af
 af login
-af update yourAPP  
+af <span class="keyword">update</span> yourAPP  </span>
 </code></pre><p>这里来点题外话，Ruby使用者可以忽略本段。rubygem的资源文件由于你懂的原因经常无法访问，伟大的淘宝提供了国内<a href="http://ruby.taobao.org/" target="_blank">镜像</a>网站。 </p>
-<pre><code>$ gem sources --remove http://rubygems.org/
-$ gem sources -a http://ruby.taobao.org/
+<pre><code>$ gem sources --remove http://rubygems<span class="preprocessor">.org</span>/
+$ gem sources -a http://ruby<span class="preprocessor">.taobao</span><span class="preprocessor">.org</span>/
 $ gem sources -l
 *** CURRENT SOURCES ***
-http://ruby.taobao.org
-# 请确保只有 ruby.taobao.org
+<span class="label">http:</span>//ruby<span class="preprocessor">.taobao</span><span class="preprocessor">.org</span>
+<span class="preprocessor"># 请确保只有 ruby.taobao.org</span>
 $ gem install rack
 </code></pre><p>现在就使用AppFog创建一个应用吧。AppFog非常适合用于学习编程语言或部署、测试小的应用程序。2GB内存够做不少事情~  </p>
-<p>这里是我通过AppFog创建的一个Python应用例子：<a href="http://python.yangjian.me" target="_blank"><a href="http://python.yangjian.me">http://python.yangjian.me</a></a></p>
+<p>这里是我通过AppFog创建的一个Python应用例子：<a href="http://python.yangjian.me" target="_blank">http://python.yangjian.me</a></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -207,7 +207,7 @@ $ gem install rack
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#appfog-"><span class="toc-number">1.</span> <span class="toc-text">AppFog简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-"><span class="toc-number">2.</span> <span class="toc-text">创建应用：</span></a></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#AppFog简介"><span class="toc-number">1.</span> <span class="toc-text">AppFog简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建应用："><span class="toc-number">2.</span> <span class="toc-text">创建应用：</span></a></li></ol>
   </div>
 
 <div id="asidepart">
@@ -219,7 +219,7 @@ $ gem install rack
 	<p class="asidetitle"><a href="/categories">分类</a></p>
 		<ul>
 		
-			<li><a href="/categories/learning/" title="learning">learning<sup>1</sup></a></li>
+			<li><a href="/categories/learning/" title="learning">learning<sup>2</sup></a></li>
 		
 			<li><a href="/categories/personal/" title="personal">personal<sup>2</sup></a></li>
 		
@@ -254,7 +254,11 @@ $ gem install rack
 		
 			<li><a href="/tags/学习/" title="学习">学习<sup>1</sup></a></li>
 		
+			<li><a href="/tags/性能优化/" title="性能优化">性能优化<sup>1</sup></a></li>
+		
 			<li><a href="/tags/总结/" title="总结">总结<sup>2</sup></a></li>
+		
+			<li><a href="/tags/浏览器/" title="浏览器">浏览器<sup>1</sup></a></li>
 		
 		</ul>
 </div>
@@ -264,8 +268,8 @@ $ gem install rack
   <p class="asidetitle">友情链接</p>
     <ul>
       <li><a href="http://yangjian.me" target="_blank" title="YangJian">Alimon's Blog</a></li>
-      <li><a href="http://zespia.tw/hexo" target="_blank" title="Hexo">Hexo</a></li>
-      <li><a href="http://se77en.cc/" target="_blank" title="se77en">se77en</a></li>
+      <li><a href="http://hexo.io/" target="_blank" title="Hexo">Hexo</a></li>
+      <li><a href="http://se77en.cc/" target="_blank" title="Se77en">Se77en</a></li>
        <li><a href="http://eli.im/" target="_blank" title="Eli's Blog">Eli's Blog</a></li>
     </ul>
 </div>

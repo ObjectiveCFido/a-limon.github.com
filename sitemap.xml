@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.yangjian.me/learning/reflow-and-reprint-in-browsers/</loc>
+    <lastmod>2014-03-19T16:00:00.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://www.yangjian.me/search/index.html</loc>
     <lastmod>2014-02-05T04:20:15.000Z</lastmod>
   </url>

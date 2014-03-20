@@ -94,49 +94,42 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#-"><span class="toc-number">1.</span> <span class="toc-text">关闭缩略图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#-"><span class="toc-number">2.</span> <span class="toc-text">关闭自动保存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#-"><span class="toc-number">3.</span> <span class="toc-text">邮件服务设置</span></a></li><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#wp-mail-smtp-"><span class="toc-number">3.1.</span> <span class="toc-text">WP-Mail-SMTP 实现邮件发送</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#replymail-"><span class="toc-number">3.2.</span> <span class="toc-text">replyMail 实现用户评论被回复邮件通知</span></a></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#-"><span class="toc-number">4.</span> <span class="toc-text">彩色标签云</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ajax-"><span class="toc-number">5.</span> <span class="toc-text">AJAX评论</span></a></li><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#-"><span class="toc-number">5.1.</span> <span class="toc-text">整合社会化评论</span></a></li></ol></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#-"><span class="toc-number"></span> <span class="toc-text">其他优化</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#关闭缩略图"><span class="toc-number">1.</span> <span class="toc-text">关闭缩略图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关闭自动保存"><span class="toc-number">2.</span> <span class="toc-text">关闭自动保存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#邮件服务设置"><span class="toc-number">3.</span> <span class="toc-text">邮件服务设置</span></a></li><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#WP-Mail-SMTP_实现邮件发送"><span class="toc-number">3.1.</span> <span class="toc-text">WP-Mail-SMTP 实现邮件发送</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#replyMail_实现用户评论被回复邮件通知"><span class="toc-number">3.2.</span> <span class="toc-text">replyMail 实现用户评论被回复邮件通知</span></a></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#彩色标签云"><span class="toc-number">4.</span> <span class="toc-text">彩色标签云</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AJAX评论"><span class="toc-number">5.</span> <span class="toc-text">AJAX评论</span></a></li><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#整合社会化评论"><span class="toc-number">5.1.</span> <span class="toc-text">整合社会化评论</span></a></li></ol></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#其他优化"><span class="toc-number"></span> <span class="toc-text">其他优化</span></a></li></ol>
 		</div>
 		
 		<p>实际上，通过新浪SAE上“应用商店”安装的wordpress已经是经过些基础优化的，比如数据库主从分离，提升性能，节省云豆消耗，使用轻量的Memcache缓存模块。而本文讨论的优化主要涉及到：<strong>关闭缩略图，减少碎片文件，邮件发送，通知用户评论被回复，彩色标签云，Ajax评论，整合社会化评论，其他优化。</strong>优化同样是个个性化的事情，需求决定命运。  </p>
-<h3 id="-">关闭缩略图</h3>
-<p>昨天发表了一篇文章，里面只有三张图片，但是今天在SAE上的Storage里面有超过十四张的图片，仔细看发现是Wordpress自己生成的缩略图，果断砍掉。
-<strong>进入“WP后台&gt;&gt;设置&gt;&gt;媒体”将所有数字改为0。完成。</strong>
-<img src="/image/2013-03-18/wordpress01.PNG" alt="Image Title">  </p>
-<h3 id="-">关闭自动保存</h3>
-<p>禁止文章修订版本和自动保存功能可以减少碎片文件的生成，同时我个人从来不在WP的后台发表文章，我总是使用<a href="http://explore.live.com/windows-live-essentials-other-programs?T1=t5" target="_blank">Windows Live Writer</a>，所以这个功能也果断砍掉。
-<strong>在主题的 functions.php 文件里面加入如下代码即可。</strong>  </p>
-<pre><code>/* 移除自动保存和修订版本 */
-remove_action(&#39;pre_post_update&#39;, &#39;wp_save_post_revision&#39; );
-add_action( &#39;wp_print_scripts&#39;, &#39;disable_autosave&#39; );
-function disable_autosave() {
-wp_deregister_script(&#39;autosave&#39;);
+<h3 id="关闭缩略图">关闭缩略图</h3>
+<p>昨天发表了一篇文章，里面只有三张图片，但是今天在SAE上的Storage里面有超过十四张的图片，仔细看发现是Wordpress自己生成的缩略图，果断砍掉。<br><strong>进入“WP后台&gt;&gt;设置&gt;&gt;媒体”将所有数字改为0。完成。</strong><br><img src="/image/2013-03-18/wordpress01.PNG" alt="Image Title">  </p>
+<h3 id="关闭自动保存">关闭自动保存</h3>
+<p>禁止文章修订版本和自动保存功能可以减少碎片文件的生成，同时我个人从来不在WP的后台发表文章，我总是使用<a href="http://explore.live.com/windows-live-essentials-other-programs?T1=t5" target="_blank">Windows Live Writer</a>，所以这个功能也果断砍掉。<br><strong>在主题的 functions.php 文件里面加入如下代码即可。</strong>  </p>
+<pre><code><span class="comment">/* 移除自动保存和修订版本 */</span>
+<span class="function">remove_action(<span class="string">'pre_post_update'</span>, <span class="string">'wp_save_post_revision'</span> )</span>;
+<span class="function">add_action( <span class="string">'wp_print_scripts'</span>, <span class="string">'disable_autosave'</span> )</span>;
+function <span class="function">disable_autosave()</span> {
+<span class="function">wp_deregister_script(<span class="string">'autosave'</span>)</span>;
 }
-</code></pre><h3 id="-">邮件服务设置</h3>
+</code></pre><h3 id="邮件服务设置">邮件服务设置</h3>
 <p>可以通过代码或插件实现，代码实现方法请参考<a href="http://www.evecalm.com/2011/11/wordpress-for-sae-mail-comment.html" target="_blank">这里</a>。我比较懒，改了几次没有成功，而且考虑到以后的可移植性，我选择插件法。需要两个插件实现。</p>
-<h4 id="wp-mail-smtp-">WP-Mail-SMTP 实现邮件发送</h4>
+<h4 id="WP-Mail-SMTP_实现邮件发送">WP-Mail-SMTP 实现邮件发送</h4>
 <p><img src="/image/2013-03-18/wordpress02.PNG" alt="Image Title">  </p>
-<h4 id="replymail-">replyMail 实现用户评论被回复邮件通知</h4>
+<h4 id="replyMail_实现用户评论被回复邮件通知">replyMail 实现用户评论被回复邮件通知</h4>
 <p><img src="/image/2013-03-18/wordpress03.PNG" alt="Image Title"><br>设置请参考截图上的说明。  </p>
-<h3 id="-">彩色标签云</h3>
-<p>那个flash标签云超级难用，而且是flash的，自带的标签云完全够用，为了喜庆点可以弄成彩色的。
-<strong>在主题的 functions.php 文件里面加入如下代码即可。添加完成后每次刷新颜色都是随机改变的。</strong>  </p>
-<pre><code>/* 彩色标签云 */
-function colorCloud($text) 
-{$text = preg_replace_callback(&#39;||i&#39;, &#39;colorCloudCallback&#39;, $text); return $text; }        
-function colorCloudCallback($matches)
-{$text = $matches[1]; $color = dechex(rand(0,16777215)); 
-$pattern = &#39;/class=(\&#39;|\&quot;)(.*)(\&#39;|\&quot;)/i&#39;; 
-$text = preg_replace($pattern, &quot;class=\&quot;color:#{$color};$2;\&quot;&quot;, $text); 
-return &quot;&quot;; }
-add_filter(&#39;wp_tag_cloud&#39;, &#39;colorCloud&#39;, 1);
-</code></pre><h3 id="ajax-">AJAX评论</h3>
-<p>如果你的主题自带Ajax回复，请无视本段。如果主题没有ajax评论效果，我强烈建议你安装，增强用户体验，<strong>感谢@蒋兔兔以及@你没事儿吧 的给力评论测试，不至于场面过于冷场！</strong>
-<strong>只要主题符合wp标准，安装wp-comment-master插件就能实现AJAX评论和评论翻页。</strong>  </p>
-<h4 id="-">整合社会化评论</h4>
-<p>我试用了很多社会化插件，效果都不太满意，有的需要自己申请网站的appkey,大部分的插件都不支持整合现有的wp评论，还有的系统需要用户在你的网站注册成用户。所幸直接修改主题模板，直接整合两套评论系统，兼顾所有用户，亲你爱用哪个用哪个~
-使用的是<a href="http://duoshuo.com/" target="_blank">多说</a>平台。注意，<strong>不要使用wordpress插件版</strong>，因为那样插件会自动取代现有的评论系统。注册账户后点击“获取代码”选择“通用代码”。你会得到一段带有用户ID的javascript代码。
-将代码插入到主题的single.php中的合适位置。效果请参考本页面底部。你也可以编写成一个选项卡，点击载入“社交评论”。</p>
-<h2 id="-">其他优化</h2>
+<h3 id="彩色标签云">彩色标签云</h3>
+<p>那个flash标签云超级难用，而且是flash的，自带的标签云完全够用，为了喜庆点可以弄成彩色的。<br><strong>在主题的 functions.php 文件里面加入如下代码即可。添加完成后每次刷新颜色都是随机改变的。</strong>  </p>
+<pre><code><span class="comment">/* 彩色标签云 */</span>
+<span class="function"><span class="keyword">function</span> <span class="title">colorCloud</span><span class="params">(<span class="variable">$text</span>)</span> 
+{</span><span class="variable">$text</span> = preg_replace_callback(<span class="string">'||i'</span>, <span class="string">'colorCloudCallback'</span>, <span class="variable">$text</span>); <span class="keyword">return</span> <span class="variable">$text</span>; }        
+<span class="function"><span class="keyword">function</span> <span class="title">colorCloudCallback</span><span class="params">(<span class="variable">$matches</span>)</span>
+{</span><span class="variable">$text</span> = <span class="variable">$matches</span>[<span class="number">1</span>]; <span class="variable">$color</span> = dechex(rand(<span class="number">0</span>,<span class="number">16777215</span>)); 
+<span class="variable">$pattern</span> = <span class="string">'/class=(\'|\")(.*)(\'|\")/i'</span>; 
+<span class="variable">$text</span> = preg_replace(<span class="variable">$pattern</span>, <span class="string">"class=\"color:#{$color};$2;\""</span>, <span class="variable">$text</span>); 
+<span class="keyword">return</span> <span class="string">""</span>; }
+add_filter(<span class="string">'wp_tag_cloud'</span>, <span class="string">'colorCloud'</span>, <span class="number">1</span>);
+</code></pre><h3 id="AJAX评论">AJAX评论</h3>
+<p>如果你的主题自带Ajax回复，请无视本段。如果主题没有ajax评论效果，我强烈建议你安装，增强用户体验，<strong>感谢@蒋兔兔以及@你没事儿吧 的给力评论测试，不至于场面过于冷场！</strong><br><strong>只要主题符合wp标准，安装wp-comment-master插件就能实现AJAX评论和评论翻页。</strong>  </p>
+<h4 id="整合社会化评论">整合社会化评论</h4>
+<p>我试用了很多社会化插件，效果都不太满意，有的需要自己申请网站的appkey,大部分的插件都不支持整合现有的wp评论，还有的系统需要用户在你的网站注册成用户。所幸直接修改主题模板，直接整合两套评论系统，兼顾所有用户，亲你爱用哪个用哪个~<br>使用的是<a href="http://duoshuo.com/" target="_blank">多说</a>平台。注意，<strong>不要使用wordpress插件版</strong>，因为那样插件会自动取代现有的评论系统。注册账户后点击“获取代码”选择“通用代码”。你会得到一段带有用户ID的javascript代码。<br>将代码插入到主题的single.php中的合适位置。效果请参考本页面底部。你也可以编写成一个选项卡，点击载入“社交评论”。</p>
+<h2 id="其他优化">其他优化</h2>
 <p>个人认为使用15个以下插件不会给网站的性能拖后腿，总之，使用插件是一个权衡性能，可移植性，便捷性的事情。正如<a href="http://yangjian.me/web/2012/02/10/build-wordpress-on-SAE/" target="_blank">上篇文章</a>提到的推荐插件。  </p>
 <ul>
 <li>WP Cleaner：清除无用的文章，草稿，如果你使用了上面我介绍的“关闭自动保存”这个插件在使用完就可以卸载了。</li>
@@ -202,7 +195,7 @@ add_filter(&#39;wp_tag_cloud&#39;, &#39;colorCloud&#39;, 1);
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#-"><span class="toc-number">1.</span> <span class="toc-text">关闭缩略图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#-"><span class="toc-number">2.</span> <span class="toc-text">关闭自动保存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#-"><span class="toc-number">3.</span> <span class="toc-text">邮件服务设置</span></a></li><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#wp-mail-smtp-"><span class="toc-number">3.1.</span> <span class="toc-text">WP-Mail-SMTP 实现邮件发送</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#replymail-"><span class="toc-number">3.2.</span> <span class="toc-text">replyMail 实现用户评论被回复邮件通知</span></a></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#-"><span class="toc-number">4.</span> <span class="toc-text">彩色标签云</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ajax-"><span class="toc-number">5.</span> <span class="toc-text">AJAX评论</span></a></li><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#-"><span class="toc-number">5.1.</span> <span class="toc-text">整合社会化评论</span></a></li></ol></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#-"><span class="toc-number"></span> <span class="toc-text">其他优化</span></a></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#关闭缩略图"><span class="toc-number">1.</span> <span class="toc-text">关闭缩略图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关闭自动保存"><span class="toc-number">2.</span> <span class="toc-text">关闭自动保存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#邮件服务设置"><span class="toc-number">3.</span> <span class="toc-text">邮件服务设置</span></a></li><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#WP-Mail-SMTP_实现邮件发送"><span class="toc-number">3.1.</span> <span class="toc-text">WP-Mail-SMTP 实现邮件发送</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#replyMail_实现用户评论被回复邮件通知"><span class="toc-number">3.2.</span> <span class="toc-text">replyMail 实现用户评论被回复邮件通知</span></a></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#彩色标签云"><span class="toc-number">4.</span> <span class="toc-text">彩色标签云</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AJAX评论"><span class="toc-number">5.</span> <span class="toc-text">AJAX评论</span></a></li><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#整合社会化评论"><span class="toc-number">5.1.</span> <span class="toc-text">整合社会化评论</span></a></li></ol></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#其他优化"><span class="toc-number"></span> <span class="toc-text">其他优化</span></a></li></ol>
   </div>
 
 <div id="asidepart">
@@ -214,7 +207,7 @@ add_filter(&#39;wp_tag_cloud&#39;, &#39;colorCloud&#39;, 1);
 	<p class="asidetitle"><a href="/categories">分类</a></p>
 		<ul>
 		
-			<li><a href="/categories/learning/" title="learning">learning<sup>1</sup></a></li>
+			<li><a href="/categories/learning/" title="learning">learning<sup>2</sup></a></li>
 		
 			<li><a href="/categories/personal/" title="personal">personal<sup>2</sup></a></li>
 		
@@ -249,7 +242,11 @@ add_filter(&#39;wp_tag_cloud&#39;, &#39;colorCloud&#39;, 1);
 		
 			<li><a href="/tags/学习/" title="学习">学习<sup>1</sup></a></li>
 		
+			<li><a href="/tags/性能优化/" title="性能优化">性能优化<sup>1</sup></a></li>
+		
 			<li><a href="/tags/总结/" title="总结">总结<sup>2</sup></a></li>
+		
+			<li><a href="/tags/浏览器/" title="浏览器">浏览器<sup>1</sup></a></li>
 		
 		</ul>
 </div>
@@ -259,8 +256,8 @@ add_filter(&#39;wp_tag_cloud&#39;, &#39;colorCloud&#39;, 1);
   <p class="asidetitle">友情链接</p>
     <ul>
       <li><a href="http://yangjian.me" target="_blank" title="YangJian">Alimon's Blog</a></li>
-      <li><a href="http://zespia.tw/hexo" target="_blank" title="Hexo">Hexo</a></li>
-      <li><a href="http://se77en.cc/" target="_blank" title="se77en">se77en</a></li>
+      <li><a href="http://hexo.io/" target="_blank" title="Hexo">Hexo</a></li>
+      <li><a href="http://se77en.cc/" target="_blank" title="Se77en">Se77en</a></li>
        <li><a href="http://eli.im/" target="_blank" title="Eli's Blog">Eli's Blog</a></li>
     </ul>
 </div>
